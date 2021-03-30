@@ -1,0 +1,23 @@
+{
+  "name": "yup",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhyafe/yup.git"
+  },
+  "keywords": [],
+  "author": "张亚飞",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhyafe/yup/issues"
+  },
+  "homepage": "https://github.com/zhyafe/yup#readme",
+  "dependencies": {
+    "yup": "^0.32.9"
+  }
+}
