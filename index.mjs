@@ -1,5 +1,11 @@
 import yup from "yup";
 
+yup.setLocale({
+  mixed: {
+    required: "必传",
+  },
+});
+
 let schema = yup.object().shape({
   name: yup.string().required(),
   age: yup.number().required().positive().integer(),
