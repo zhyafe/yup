@@ -7,10 +7,17 @@ yup.setLocale({
 });
 
 let schema = yup.object().shape({
-  name: yup.string().required("zdy").min(4, "最小斯"),
+  name: yup
+    .string()
+    .required("cr")
+    .matches(/^[\u4e00-\u9fa5A-Za-z0-9]{2,20}$/, {
+      //matches 默认校验空字符串，可使用excludeEmptyString排除空字符串校验
+      message: "输入2-20长度字符",
+      excludeEmptyString: false, //默认false 不排除空字符串
+    }),
   address: yup.string().matches(/^[\u4e00-\u9fa5A-Za-z0-9]{2,20}$/, {
     message: "输入2-20长度字符",
-    excludeEmptyString: true,
+    excludeEmptyString: false, //默认false 不排除空字符串
   }),
   age: yup.number().required().positive().integer(),
   email: yup.string().email(),
@@ -23,7 +30,7 @@ let schema = yup.object().shape({
 // check validity
 (async () => {
   try {
-    let res = await schema.validate({ age: 1, name: "11aa", address: "" });
+    let res = await schema.validate({ age: 1, name: "1", address: "aa" });
     console.log("res", res);
     console.log("data", schema.getDefault());
   } catch (error) {
